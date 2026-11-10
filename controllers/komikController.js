@@ -15,7 +15,7 @@ async function getKomikById(req, res) {
     try {
         const komik = await db.Komik.findByPk(id);
         if (!komik) {
-            return res.status(404).json({ error: 'Komik not found'});
+            return res.status(404).json({ error: 'Komik not found' });
         }
         res.status(200).json(komik);
     } catch (err) {
@@ -31,7 +31,7 @@ async function createKomik(req, res) {
         res.status(201).json(newKomik);
     } catch (err) {
         console.error('Error creating komik:', err.message);
-        res.status(500).json({error: 'Failed to create komik'});
+        res.status(500).json({ error: 'Failed to create komik' });
     }     
 }
 
@@ -50,7 +50,7 @@ async function updateKomik(req, res) {
         res.status(200).json(komik);
     } catch (err) {
         console.error('Error updating komik:', err.message);
-        res.status(500).json({error: 'Failed to update komik'});
+        res.status(500).json({ error: 'Failed to update komik' });
     }    
 }
 
@@ -65,14 +65,14 @@ async function deleteKomik(req, res) {
         res.status(200).json({ message : 'Komik deleted successfully' });
     } catch (err) {
         console.error('Error deleting komik:', err.message);
-        res.status(500).json({error: 'Failed to delete komik'});
+        res.status(500).json({ error: 'Failed to delete komik' });
     }    
 }
 
 module.exports = {
-...getAllKomik,
-...getKomikById,
-...createKomik,
-...updateKomik,
-...deleteKomik
+getAllKomik,
+getKomikById,
+createKomik,
+updateKomik,
+deleteKomik
 };

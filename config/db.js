@@ -2,7 +2,7 @@ const db = require('../models');
 
 async function connectDatabase() {
     try {
-        await db.sequelize.autheticate();
+        await db.sequelize.authenticate();
         console.log('Database conneted successfully');
 
         await db.sequelize.sync({ alter: true });
@@ -14,3 +14,4 @@ async function connectDatabase() {
                 
     }
 }
+module.exports = connectDatabase;
