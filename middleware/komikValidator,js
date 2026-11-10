@@ -33,7 +33,7 @@ function validateBody(schema) {
                 "Validasi Input Gagal",
                 400,
                 error.details.map((item) => ({
-                    field: item.patj.join("."),
+                    field: item.path.join("."),
                     message: item.message,
                 }))
             );
@@ -42,3 +42,25 @@ function validateBody(schema) {
         next();
     };
 }
+
+function validateParams(schema) {
+    return (req, res, next) => {
+        const { error, value } = schema.validate(req.params);
+
+       if (error) {
+            return errorResponse(
+                res,
+                "Paramter tidak valid",
+                400,
+                error.details.map((item) => ({
+                    field: item.path.join("."),
+                    message: item.message,
+                }))
+            );
+        }
+        req.params = value;
+        next();
+    };
+}
+
+module.exports = {komikSchema, idSchema, validateBody, validateParams};
