@@ -12,4 +12,4 @@
 
 4. DELETE
 
-![alt text](<Screenshot (33409).png>) ![alt text](<Screenshot (33408)-1.png>)
+![alt text](<Screenshot (33409).png>) 
